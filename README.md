@@ -14,7 +14,7 @@
 
 ## How to run?
 
-Clone the repository an lauch in your favorite web server , e.g.:
+Clone the repository an lauch in your favorite web server, e.g.:
 
     git clone https://github.com/santiagoconde0/sabemosLoQueHiciste   
     cd sabemosLoQueHiciste 
@@ -24,6 +24,7 @@ Clone the repository an lauch in your favorite web server , e.g.:
 ## Authors
 
 [Santiago Suárez Conde](https://github.com/santiagoconde0)
+
 [Martha Cardenas](https://github.com/mlcardenas18)
 
 
