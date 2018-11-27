@@ -7,6 +7,7 @@
 
 	<title>Sabemos lo que hiciste</title>
 
+
 	<link rel="stylesheet" href="css/revealVizScroll.css">
 	<link rel="stylesheet" href="css/reveal.css">
 	<link rel="stylesheet" href="css/theme/white.css">
@@ -17,7 +18,7 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-6">
+			<div class="col-sm-6" id="col1">
 				<p id="legend"class="font-italic" style="  font-size: 60px;  position: relative;  top: 30%;  transform: translateY(-50%);">
 
 					Estos fueron algunos de los congresistas con más votos en las pasadas elecciones.
@@ -44,15 +45,24 @@
 					</section>
 					<section class="scroll" scrollable="change" step="step 3" >
 					</section>
+					<section class="scroll" scrollable="change" step="step 4" >
+					</section>
+					<section class="scroll" scrollable="change" step="step 5" >
+					</section>
 
 			</section>
 		</div>
 	</div>
 
+	<!-- librerias -->
+	<script src="https://cdn.jsdelivr.net/npm/vega@4.3.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@3.0.0-rc8"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@3.20.0"></script>
 	<script src="https://d3js.org/d3.v5.min.js"></script>
 	<script src="lib/js/head.min.js"></script>
 	<script src="js/reveal.js"></script>
 	<script src="js/sections/bubble.js"></script>
+	<script src="js/sections/barchart.js"></script>
 
 	<script>
 	function doStep(step) {
@@ -78,10 +88,55 @@ function step3() {
 	.text("¡Todos tienen familiares contratando con el estado!");
 };
 
+function step4() {
+	changeText
+	.text("Veamos lo siguiente");
+
+	console.log("Prev", d3.select("#vis1")._groups[0].map(function (d) {
+		if ( d !== null) {
+
+			d3.select("#vis1")
+			.attr("id", "content");
+			d3.select("svg").remove();
+
+			d3.select("#col1")
+			.attr("class", "col-sm-6");
+
+			d3.select("#content")
+			.attr("id", "content")
+			.attr("class", "col-sm-6");
+
+			createBubble();
+
+		};
+	}));
+};
+
+function step5() {
+
+	d3.select("#col1")
+	.attr("class", "col-sm-0");
+
+	d3.select("#content")
+	.attr("id", "vis1")
+	.attr("class", "col-sm-12");
+
+	d3.select("svg").remove();
+	changeText
+	.text("");
+
+
+	createBarchart();
+
+
+};
+
 		if (step==="step 0") step0();
 		else if(step==="step 1") step1();
 		else if(step==="step 2") step2();
 		else if(step==="step 3") step3();
+		else if(step==="step 4") step4();
+		else if(step==="step 5") step5();
 	}
 	</script>
 

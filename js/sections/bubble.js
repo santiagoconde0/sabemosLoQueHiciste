@@ -1,4 +1,7 @@
-// function bubbles() {
+createBubble();
+
+function createBubble() {
+
 // dimensiones
 var width = 800;
 // var height = document.getElementById("content").clientHeight;
@@ -14,13 +17,11 @@ var svg = d3.select("#content")
   .append('g');
 
 var simulation = d3.forceSimulation().velocityDecay(0.2)
-  .force("charge", d3.forceManyBody().strength(300))
-  .force('collision', d3.forceCollide().radius(85))
+  .force("charge", d3.forceManyBody().strength(390))
+  .force('collision', d3.forceCollide().radius(100))
   .force("center", d3.forceCenter(width/2 , height/2));
 
 d3.csv("data/nodes.csv").then(function(data) {
-console.log(data);
-
 
   var node = svg.append("g")
     .attr("class", "nodes")
@@ -30,13 +31,10 @@ console.log(data);
     .on("mouseover", mouseover)
     .on("mouseout", mouseout);
 
-  var holder = d3.select("svg");
-  console.log("Holder", holder);
-
   var images = node.append("image")
     .attr('xlink:href', function(d) {
       return "img/congresistas/" + d.ID.replace(/ /g, '').replace("*", '') + ".png";
-    }).attr("width", 85)
+    }).attr("width", 100)
     .call(d3.drag()
       .on("start", dragstarted)
       .on("drag", dragged)
@@ -67,9 +65,7 @@ console.log(data);
 
     images.transition()
       .duration(5).attr("width", 85);
-
   }
-
 
   node.append("title")
     .text(function(d) {
@@ -105,6 +101,7 @@ function dragended(d) {
   d.fx = null;
   d.fy = null;
 }
+};
 
 
 // }
