@@ -67,7 +67,7 @@ d3.select("label")
   .property("disabled", true)
   .property("checked", false); 
 
-d3.csv("https://raw.githubusercontent.com/mlcardenas18/PROYECTO_VIS2/master/data/modalidadcontratacion_1.csv").then(function(data) {
+d3.csv("https://raw.githubusercontent.com/santiagoconde0/sabemosLoQueHiciste/master/data/modalidadcontratacion_1.csv").then(function(data) {
   console.log(data);
   color.domain(d3.keys(data[0]).filter(function(key) { return key !== "congresistafam"; }));
 
