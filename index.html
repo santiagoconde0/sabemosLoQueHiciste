@@ -70,6 +70,7 @@
 	<script src="js/sections/bubble.js"></script>
 	<script src="js/sections/barchart.js"></script>
 	<script src="js/sections/stackbar.js"></script>
+	<script src="js/sections/tree.js"></script>
 
 	<script>
 	function doStep(step) {
@@ -160,7 +161,6 @@ function step6() {
 			.attr("class", "col-sm-4");
 
 			d3.select("#content")
-			.attr("id", "content")
 			.attr("class", "col-sm-8");
 
 			createStackBar();
@@ -181,7 +181,14 @@ function step8() {
 			d3.select("svg").remove();
 			d3.select("svg").remove();
 
-			createBubble();
+			d3.select("#col1")
+			.attr("class", "col-sm-2");
+
+			d3.select("#content")
+			.attr("class", "col-sm-10");
+
+			createTree();
+
 
 };
 
