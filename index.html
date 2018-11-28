@@ -49,6 +49,12 @@
 					</section>
 					<section class="scroll" scrollable="change" step="step 5" >
 					</section>
+					<section class="scroll" scrollable="change" step="step 6" >
+					</section>
+					<section class="scroll" scrollable="change" step="step 7" >
+					</section>
+					<section class="scroll" scrollable="change" step="step 8" >
+					</section>
 
 			</section>
 		</div>
@@ -63,6 +69,7 @@
 	<script src="js/reveal.js"></script>
 	<script src="js/sections/bubble.js"></script>
 	<script src="js/sections/barchart.js"></script>
+	<script src="js/sections/stackbar.js"></script>
 
 	<script>
 	function doStep(step) {
@@ -92,11 +99,12 @@ function step4() {
 	changeText
 	.text("Veamos lo siguiente");
 
-	console.log("Prev", d3.select("#vis1")._groups[0].map(function (d) {
+	var backViz = d3.select("#vis1")._groups[0].map(function (d) {
 		if ( d !== null) {
 
 			d3.select("#vis1")
 			.attr("id", "content");
+			d3.select("svg").remove();
 			d3.select("svg").remove();
 
 			d3.select("#col1")
@@ -109,7 +117,7 @@ function step4() {
 			createBubble();
 
 		};
-	}));
+	});
 };
 
 function step5() {
@@ -121,13 +129,59 @@ function step5() {
 	.attr("id", "vis1")
 	.attr("class", "col-sm-12");
 
-	d3.select("svg").remove();
 	changeText
 	.text("");
 
+	d3.select("#col1")
+	  .append("svg")
+	  .attr("width", 1)
+	  .attr("height", 10);
 
 	createBarchart();
 
+	d3.select(".marks")
+	.style("width", "1300");
+
+};
+
+function step6() {
+	changeText
+	.text("Texto para stackbar");
+
+	var backViz = d3.select("#vis1")._groups[0].map(function (d) {
+		if ( d !== null) {
+
+			d3.select("#vis1")
+			.attr("id", "content");
+			d3.select("svg").remove();
+			d3.select("svg").remove();
+
+			d3.select("#col1")
+			.attr("class", "col-sm-4");
+
+			d3.select("#content")
+			.attr("id", "content")
+			.attr("class", "col-sm-8");
+
+			createStackBar();
+
+		};
+	});
+};
+
+function step7() {
+	changeText
+	.text("Texto B");
+};
+
+function step8() {
+	changeText
+	.text("Texto para tree");
+
+			d3.select("svg").remove();
+			d3.select("svg").remove();
+
+			createBubble();
 
 };
 
@@ -137,6 +191,9 @@ function step5() {
 		else if(step==="step 3") step3();
 		else if(step==="step 4") step4();
 		else if(step==="step 5") step5();
+		else if(step==="step 6") step6();
+		else if(step==="step 7") step7();
+		else if(step==="step 8") step8();
 	}
 	</script>
 

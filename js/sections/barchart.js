@@ -1,5 +1,4 @@
 function createBarchart() {
-
 // Se especifica las características de la visualización en el lenguaje de marcas en VegaLite
 var vlSpec1 ={
 "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
@@ -180,5 +179,8 @@ var vlSpec1 ={
  // Inserta la visualzación en el contendor con el id 'vis1'
 
 vegaEmbed("#vis1", vlSpec1, {theme: null, actions:false, renderer: 'svg'});
+
+
+
 
 };
