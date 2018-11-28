@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/master.css">
+</head>
+
+<body>
+
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <h4 class="my-0 mr-md-auto font-weight-normal">Congresistas con familiares contratando con estado</h4>
+    <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="/familiaresCongresistasTree/">Visualization</a>
+        <a class="p-2 text-dark" href="/familiaresCongresistasTree/tamara.html">Tamara</a>
+        <a class="p-2 text-dark" href="https://github.com/santiagoconde0/familiaresCongresistasTree">Code</a>
+    </nav>
+  </div>
+
+  <div id="content">
+
+  </div>
+
+  <div align="center">
+    <svg width= "1000" height="1000">  </svg>
+  </div>
+<hr>
+  <footer>
+    <div align="center">
+      <small class="d-block mb-3 text-muted">&copy; Santiago Suárez Conde</small>
+    </div>
+  </footer>
+
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="js/sections/tree.js"></script>
+
+  <script>
+    createTree();
+  </script>
+
+</body>
+
+</html>
