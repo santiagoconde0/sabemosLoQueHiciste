@@ -135,8 +135,8 @@ d3.csv("https://raw.githubusercontent.com/santiagoconde0/sabemosLoQueHiciste/mas
           //d3.select(this).attr("stroke","blue").attr("stroke-width",0.8);
 
           svg.append("text")
-          .attr("x",xPos)
-          .attr("y",yPos +height/2)
+          .attr("x",300) //xPos
+          .attr("y",100) //yPos +height/2
           .attr("class","tooltip")
           .text(d.name +": "+ format(delta));
 
