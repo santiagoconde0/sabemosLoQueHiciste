@@ -4,7 +4,8 @@ var vlSpec3 ={
   "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
   "data": {"url": "https://raw.githubusercontent.com/santiagoconde0/sabemosLoQueHiciste/master/data/datadetallada_objetocont.json"},
   "title":"Contratación realizada (familiares de los congresistas) por objeto y tipo de proceso",
-  "width": 200, 
+  "width": 200,
+  "height": 500,
   "selection": {
     "sel": {
       "type": "single",
@@ -25,7 +26,7 @@ var vlSpec3 ={
 };
  // Inserta la visualzación en el contendor con el id 'vis1'
 
-vegaEmbed("#vis4", vlSpec3, {theme: null, actions:false, renderer: 'svg'});
+vegaEmbed("#content", vlSpec3, {theme: null, actions:false, renderer: 'svg'});
 
 
 

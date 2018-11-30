@@ -8,6 +8,7 @@
 * CSS
 * Javascript
 * [D3 v5](https://d3js.org/)
+* [jQuery](https://jquery.com/)
 * [Bootstrap](https://getbootstrap.com/)
 * [RevealJS](https://revealjs.com)
 * [RevealVizScroll](https://github.com/john-guerra/revealVizScrollyteling)
@@ -17,9 +18,9 @@
 Clone the repository an lauch in your favorite web server, e.g.:
 
     git clone https://github.com/santiagoconde0/sabemosLoQueHiciste   
-    cd sabemosLoQueHiciste 
+    cd sabemosLoQueHiciste
     http-server
-    
+
 
 ## Authors
 
