@@ -17,8 +17,8 @@ var svg = d3.select("#content")
   .append('g');
 
 var simulation = d3.forceSimulation().velocityDecay(0.2)
-  .force("charge", d3.forceManyBody().strength(390))
-  .force('collision', d3.forceCollide().radius(100))
+  .force("charge", d3.forceManyBody().strength(700))
+  .force('collision', d3.forceCollide().radius(130))
   .force("center", d3.forceCenter(width/2 , height/2));
 
 d3.csv("data/nodes.csv").then(function(data) {
@@ -34,7 +34,7 @@ d3.csv("data/nodes.csv").then(function(data) {
   var images = node.append("image")
     .attr('xlink:href', function(d) {
       return "img/congresistas/" + d.ID.replace(/ /g, '').replace("*", '') + ".png";
-    }).attr("width", 100)
+    }).attr("width", 155)
     .call(d3.drag()
       .on("start", dragstarted)
       .on("drag", dragged)
@@ -64,7 +64,7 @@ d3.csv("data/nodes.csv").then(function(data) {
     d3.select("#label").remove();
 
     images.transition()
-      .duration(5).attr("width", 85);
+      .duration(5).attr("width", 155);
   }
 
   node.append("title")
@@ -102,6 +102,3 @@ function dragended(d) {
   d.fy = null;
 }
 };
-
-
-// }

@@ -2,7 +2,7 @@ function createTree() {
 
   var margin = {top: 20, right: 20, bottom: 30, left: 100},
       width = 860 - margin.left - margin.right,
-      height = 400 - margin.top - margin.bottom;
+      height = 700 - margin.top - margin.bottom;
 
   var svg = d3.select("#content").append("svg")
       .attr("width", width + margin.left + margin.right)
@@ -13,7 +13,7 @@ var width = +svg.attr("width"),
   height = +svg.attr("height"),
   duration = 75,
   dy = width / 4,
-  dx = 40, // separacion entre nodos
+  dx = 50, // separacion entre nodos
   tree = d3.tree().nodeSize([dx, dy]), // D3 Layout tree
   diagonal = d3.linkHorizontal().x(d => d.y).y(d => d.x)
 margin = ({
@@ -128,8 +128,8 @@ d3.csv("data/data.csv").then(function(data) {
       .attr("y", function(d) {
         return -13;
       })
-      .attr("width", 35)
-      .attr("height", 35);
+      .attr("width", 45)
+      .attr("height", 45);
 
 // Ingresar Texto  en nodos
     nodeEnter.append("text")

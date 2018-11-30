@@ -117,6 +117,10 @@ function doStep(step) {
       .attr("class", "col-sm-10");
 
     createTree();
+
+    d3.select("svg")
+      .style("height", "750")
+      .attr("transform", "translate( 50 , -4)");
   };
 
   function step9() {
