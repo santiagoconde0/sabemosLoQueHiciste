@@ -28,6 +28,7 @@ var svg = d3.select("#content").append("svg")
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    .attr("transform", "translate( 100 , 20"));
 
 var active_link = "0"; //to control legend selections and hover
 var legendClicked; //to control legend selections
