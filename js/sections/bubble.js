@@ -17,7 +17,7 @@ var svg = d3.select("#content")
   .append('g');
 
 var simulation = d3.forceSimulation().velocityDecay(0.2)
-  .force("charge", d3.forceManyBody().strength(700))
+  .force("charge", d3.forceManyBody().strength(720))
   .force('collision', d3.forceCollide().radius(130))
   .force("center", d3.forceCenter(width/2 , height/2));
 
