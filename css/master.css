@@ -1,0 +1,120 @@
+/* tipografias Monserrat usadas en cuestion publica */
+
+@font-face {
+  font-family: Montserrat-Medium;
+  src: url("lib/CP Libs/Monserrat/FONT/Montserrat-Medium.otf");
+}
+
+@font-face {
+  font-family: Montserrat-Black;
+  src: url("lib/CP Libs/Monserrat/FONT/Montserrat-Black.otf");
+}
+
+@font-face {
+  font-family: Montserrat-Bold;
+  src: url("lib/CP Libs/Monserrat/FONT/Montserrat-Bold.otf");
+}
+
+@font-face {
+  font-family: Montserrat-ExtraBold;
+  src: url("lib/CP Libs/Monserrat/FONT/Montserrat-ExtraBold.otf");
+}
+
+@font-face {
+  font-family: Montserrat-Light;
+  src: url("lib/CP Libs/Monserrat/FONT/Montserrat-Light.otf");
+}
+
+@font-face {
+  font-family: Montserrat-Medium;
+  src: url("lib/CP Libs/Monserrat/FONT/Montserrat-Medium.otf");
+}
+
+@font-face {
+  font-family: Montserrat-Regular;
+  src: url("lib/CP Libs/Monserrat/FONT/Montserrat-Regular.otf");
+}
+
+@font-face {
+  font-family: Montserrat-SemiBold;
+  src: url("lib/CP Libs/Monserrat/FONT/Montserrat-SemiBold.otf");
+}
+
+@font-face {
+  font-family: Montserrat-Thin;
+  src: url("lib/CP Libs/Monserrat/FONT/Montserrat-Thin.otf");
+}
+
+@font-face {
+  font-family: Montserrat-UltraLight;
+  src: url("lib/CP Libs/Monserrat/FONT/Montserrat-UltraLight.otf");
+}
+
+@font-face {
+  font-family: MontserratAlternates-Black;
+  src: url("lib/CP Libs/Monserrat/FONT/MontserratAlternates-Black.otf");
+}
+
+@font-face {
+  font-family: MontserratAlternates-Bold;
+  src: url("lib/CP Libs/Monserrat/FONT/MontserratAlternates-Bold.otf");
+}
+
+@font-face {
+  font-family: MontserratAlternates-ExtraBold;
+  src: url("lib/CP Libs/Monserrat/FONT/MontserratAlternates-ExtraBold.otf");
+}
+
+@font-face {
+  font-family: MontserratAlternates-Light;
+  src: url("lib/CP Libs/Monserrat/FONT/MontserratAlternates-Light.otf");
+}
+
+@font-face {
+  font-family: MontserratAlternates-Medium;
+  src: url("lib/CP Libs/Monserrat/FONT/MontserratAlternates-Medium.otf");
+}
+
+@font-face {
+  font-family: MontserratAlternates-Regular;
+  src: url("lib/CP Libs/Monserrat/FONT/MontserratAlternates-Regular.otf");
+}
+
+@font-face {
+  font-family: MontserratAlternates-SemiBold;
+  src: url("lib/CP Libs/Monserrat/FONT/MontserratAlternates-SemiBold.otf");
+}
+
+@font-face {
+  font-family: MontserratAlternates-Thin;
+  src: url("lib/CP Libs/Monserrat/FONT/MontserratAlternates-Thin.otf");
+}
+
+@font-face {
+  font-family: MontserratAlternates-UltraLight;
+  src: url("lib/CP Libs/Monserrat/FONT/MontserratAlternates-UltraLight.otf");
+}
+
+@font-face {
+  font-family: Rosario-Bold;
+  src: url("lib/CP Libs/Rosario/Rosario-Bold.otf");
+}
+
+@font-face {
+  font-family: Rosario-BoldItalic;
+  src: url("lib/CP Libs/Rosario/Rosario-BoldItalic.otf");
+}
+
+@font-face {
+  font-family: Rosario-Italic;
+  src: url("lib/CP Libs/Rosario/Rosario-Italic.otf");
+}
+
+@font-face {
+  font-family: Rosario-Regular;
+  src: url("lib/CP Libs/Rosario/Rosario-Regular.otf");
+}
+
+div {
+  font-family: "Rosario-Regular", serif;
+}
