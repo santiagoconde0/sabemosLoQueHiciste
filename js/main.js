@@ -25,6 +25,7 @@ function doStep(step) {
 
   function step4() {
     changeText
+      .style("font-size", "60px")
       .text("Veamos lo siguiente");
 
     var backViz = d3.select("#vis1")._groups[0].map(function(d) {
@@ -58,9 +59,16 @@ function doStep(step) {
       .attr("class", "col-sm-10");
 
   changeText
-      .style("font-size", "15px")
+      .style("font-size", "26px")
       .style("top", "50%")
-      .text("Conflicto de intereses? ....Conozca los montos de contratación realizados por los familiares de los congresistas. En la primera gráfica seleccione (clic sostenido) la barra del congresista de su interés y sí desea más detalle puede seleccionar el familiar y observar el comportamiento de la contratación por años. Aquí puede observar un ejemplo de lo que puede encontrar.");
+      .style("font-weight", "normal" )
+      .text("¿Conflicto de Intereses? ");
+
+      changeText
+      .append("p")
+      .style("font-weight", "normal" )
+      .style("font-size", "16px")
+      .text("Conozca los montos de contratación realizados por los familiares de los congresistas. En la primera gráfica seleccione (click sostenido) la barra del congresista de su interés y sí desea más detalle puede seleccionar el familiar y observar el comportamiento de la contratación por años. Aquí puede observar un ejemplo de lo que puede encontrar.");
 
     d3.select("#col1")
       .append("svg")
@@ -85,8 +93,7 @@ function doStep(step) {
 
         d3.select("#vis1")
           .attr("id", "content");
-        d3.select("svg").remove();
-        d3.select("svg").remove();
+        d3.selectAll("svg").remove();
 
         d3.select("#col1")
           .attr("class", "col-sm-4");
@@ -127,8 +134,7 @@ function doStep(step) {
     changeText
       .text("Texto para tree");
 
-    d3.select("svg").remove();
-    d3.select("svg").remove();
+    d3.selectAll("svg").remove();
 
     d3.select("#col1")
       .attr("class", "col-sm-2");
@@ -142,10 +148,16 @@ function doStep(step) {
     createTree();
 
     d3.select("svg")
-      .style("zoom", 0.70)
+      // .style("zoom", 0.50)
       .style("width", "1860")
-      .style("height", "600")
-      .attr("transform", "translate( -290 , 80)");
+      .attr("transform", "translate( -350 , 0)");
+
+    d3.select("svg")
+      // .style("zoom", 0.50)
+      .style("height", "490");
+
+
+
   };
 
   function step9() {
@@ -153,8 +165,7 @@ function doStep(step) {
       .text("")
       .style("font-size", "30px");
 
-    d3.select("svg").remove();
-    d3.select("svg").remove();
+    d3.selectAll("svg").remove();
 
     d3.select("#col1")
       .attr("class", "col-sm-5");
@@ -179,7 +190,7 @@ function doStep(step) {
     d3.select(".marks")
       .style("width", "820")
       .style("height", "650")
-      .attr("transform", "translate( 100 , 0)");
+      .attr("transform", "translate( 100 , 5)");
 
     // Se mueve el dropdown generado por Vega a otro DIV
     $(".vega-bindings").appendTo("#DD");
