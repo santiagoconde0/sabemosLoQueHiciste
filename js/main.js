@@ -61,7 +61,7 @@ function doStep(step) {
   changeText
       .style("font-size", "26px")
       .style("top", "50%")
-      .style("font-weight", "normal" )
+      .style("font-weight", "bold" )
       .text("¿Conflicto de Intereses? ");
 
       changeText
