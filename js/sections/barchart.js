@@ -10,7 +10,7 @@ var vlSpec1 ={
   }
 },
  "title": {
-  "text": "",
+  "text": "La siguiente visualización muestra la información relacionada con la contratación realizada por los familiares de los congresistas.",
   "anchor": "start"
 },
 "hconcat": [
@@ -20,7 +20,7 @@ var vlSpec1 ={
    "title": {
   "text": "1. Monto Contratado por familiares de los congresistas años 2007 - 2018",
   "anchor": "middle",
-  "color": "Black"
+  "color": "#550F3F"
 },
 "width": 450,
 "height": 200,
@@ -29,21 +29,28 @@ var vlSpec1 ={
           "x": {
             "aggregate": "sum",
             "type": "quantitative",
-            "field": "valor_total_contratos",                           "scale": {"type":"sqrt"},
-            "format":",",
-            "axis": {"title": "Monto contratación familiares (pesos)"}
+            "field": "valor_total_contratos_millones",
+             "scale": {"type":"sqrt"},
+            "axis": {"title": "Monto contratación familiares (en millones de pesos)"}
           },
           "color": {
             "condition": {"selection": "congresel", "value": "goldenrod"},
             "value": "steelblue"
           },
-          "opacity": {"value": 3},
+         
+             "opacity": {"value": 3},
          "y": {
         "field": "Congresista",
         "type": "nominal",
         "sort": {"op": "sum", "field": "valor_total_contratos", "order": "descending"},
         "axis": {"title": "Congresista"}
-      }
+      },
+      "tooltip": [
+      {"field": "Congresista", "type": "nominal", "title":"Congresista:"},
+      {"field": "periodos_electos", "type":"nominal","title":"Años en el congreso:"},
+      {"aggregate": "sum","field": "valor_total_contratos", "type": "quantitative", "format":"$,", "title":"Monto contratación familiares:"},
+     {"aggregate": "sum","field": "numero_contratos", "type":"quantitative","title":"Número contratos:"}
+    ]
         },
         "selection": {
           "congresel": {
@@ -66,23 +73,30 @@ var vlSpec1 ={
 "title": {
   "text": "3. Distribucion contratación por familiar",
   "anchor": "middle",
-  "color": "DarkBlue"
+  "color": "#550F3F"
 },
  "transform": [{"filter": {"selection": "congresel"}}],
 "mark": {"type": "bar", "color": "green"},
 "encoding": {
   "x": {"aggregate": "sum",
             "type": "quantitative",
-            "field": "valor_total_contratos",
+            "field": "valor_total_contratos_millones",
             "scale": {"type":"sqrt"},
             "format":",",
-            "axis": {"title": "Monto contratación (pesos)"}},
+            "axis": {"title": "Monto contratación (en millones de pesos)"}},
+     "tooltip": [
+      {"field": "Congresista", "type": "nominal", "title":"Congresista:"},
+      {"field": "periodos_electos", "type":"nominal","title":"Años en el congreso:"},
+      {"aggregate": "sum","field": "valor_total_contratos", "type": "quantitative", "format":"$,", "title":"Monto contratación familiares:"},
+     {"aggregate": "sum","field": "numero_contratos", "type":"quantitative","title":"Número contratos:"},
+ {"field": "Vínculo", "type":"nominal","title":"Vínculo familiar:"}
+    ],
   "y": {"field": "Contratista_Abrev", "type": "nominal",
 "sort": {"op": "sum", "field": "valor_total_contratos", "order": "descending"},
  "axis": {"title": "Familiar o Empresa familiar"},
   "color":{
             "condition": {"selection": "familiaresel", "value": "orange"},
-            "value": "steelblue"
+            "value": "#550F3F"
           },
           "opacity": {"value": 3}
   },
@@ -109,12 +123,12 @@ var vlSpec1 ={
 },
 {"vconcat": [
    {
-"width": 300,
+"width": 200,
 "height": 200,
 "title": {
   "text": "2. Número de familiares con contratos",
   "anchor": "middle",
-  "color": "Black"
+  "color": "#550F3F"
 },
 
         "mark": "bar",
@@ -128,12 +142,12 @@ var vlSpec1 ={
     "aggregate": "distinct",
     "field": "Contratista",
     "type": "quantitative",
-    "axis": {"title": "Número de familiares con contratos"},
+    "axis": {"title": "Número de familiares o empresa familiar"},
     "scale": {"type": "linear"}
   },
           "color": {
-            "condition": {"selection": "congresel", "value": "goldenrod"},
-            "value": "steelblue"
+            "condition": {"selection": "congresel", "value": "steelblue"},
+            "value": "#EFEFEF"
           },
           "opacity": {"value": 3}
         },"selection": {
@@ -150,26 +164,27 @@ var vlSpec1 ={
         }
 }  ,
 {
-"width": 300,
+
 "height": 200,
 "title": {
   "text": "4. Comportamiento de la contratación por año de los familiares seleccionados",
   "anchor": "middle",
-  "color": "DarkBlue",
+  "color": "#550F3F",
   "padding": "80px"
 },
  "transform": [{"filter": {"selection": "familiaresel"}}],
-"mark": {"type": "line", "color": "steelblue", "point": {"color": "orange"}},
+"mark": {"type": "line", "color": "#550F3F", "point": {"color": "#f52749"}},
 "encoding": {
   "x": {"field": "fecha_contratos",
    "type": "temporal",
    "timeUnit": "year",
+   "scale": {"type":"ordinal","domain":[2007,2018]},
     "axis": {  "format":"%Y", "title": "Años"}},
   "y": {"aggregate": "sum",
             "type": "quantitative",
             "field": "valor_total_contratos",
              "format":",",
-        "axis": {"title": "Monto contratado"}}
+        "axis": {"title": "Monto contratado"}}  
 }
 }
 ]
