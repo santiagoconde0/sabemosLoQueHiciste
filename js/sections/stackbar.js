@@ -56,6 +56,7 @@ function createStackBar() {
 
     data.forEach(function(d) {
       var mystate = d.congresistafam; //add to stock code
+
       var y0 = 0;
       //d.ages = color.domain().map(function(name) { return {name: name, y0: y0, y1: y0 += +d[name]}; });
       d.ages = color.domain().map(function(name) {
@@ -78,9 +79,14 @@ function createStackBar() {
       return b.total - a.total;
     });
 
+// LLamar textos para el eje de las X
     x.domain(data.map(function(d) {
-      return d.congresistafam;
-    }));
+      return d.congresistafam ;
+    }))
+
+
+
+
     y.domain([0, d3.max(data, function(d) {
       return d.total;
     })]);
@@ -165,6 +171,7 @@ function createStackBar() {
       })
 
 
+// opciones del lado para filtrar
     var legend = svg.selectAll(".legend")
       .data(color.domain().slice().reverse())
       .enter().append("g")

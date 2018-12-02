@@ -1,5 +1,7 @@
+var changeText = d3.select("#legend") //selector del texto
+  .style("font-family", "Rosario-Regular, Rosario-Regular");
+
 function doStep(step) {
-  var changeText = d3.select("#legend"); //selector del texto
 
   function step0() {
     changeText
@@ -55,10 +57,10 @@ function doStep(step) {
       .attr("id", "vis1")
       .attr("class", "col-sm-10");
 
-    changeText
-      .style("font-size", "25px")
+  changeText
+      .style("font-size", "15px")
       .style("top", "50%")
-      .text("pellentesque pulvinar pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas maecenas pharetra convallis posuere morbi");
+      .text("Conflicto de intereses? ....Conozca los montos de contratación realizados por los familiares de los congresistas. En la primera gráfica seleccione (clic sostenido) la barra del congresista de su interés y sí desea más detalle puede seleccionar el familiar y observar el comportamiento de la contratación por años. Aquí puede observar un ejemplo de lo que puede encontrar.");
 
     d3.select("#col1")
       .append("svg")
@@ -75,8 +77,8 @@ function doStep(step) {
 
   function step6() {
     changeText
-    .style("font-size", "60px")
-    .text("Texto para stackbar");
+      .style("font-size", "60px")
+      .text("Texto para stackbar");
 
     var backViz = d3.select("#vis1")._groups[0].map(function(d) {
       if (d !== null) {
@@ -92,7 +94,25 @@ function doStep(step) {
         d3.select("#content")
           .attr("class", "col-sm-8");
 
+        d3.select("#content")
+          .append("label")
+          .attr("id", "label")
+          .text("Ordenar ")
+          .style("color", "#D8D8D8")
+          .style("font-family", "Rosario-Regular, Rosario-Regular");
+
+        d3.select("label")
+          .append("input")
+          .attr("type", "checkbox");
+
+        // crear stackbar
         createStackBar();
+
+        $("#label").appendTo("#content");
+
+        d3.select("#label")
+          .style("font-family", "Rosario-Regular, Rosario-Regular")
+          .style("font-size", "25px");
 
       };
     });
@@ -116,11 +136,16 @@ function doStep(step) {
     d3.select("#content")
       .attr("class", "col-sm-10");
 
+      d3.select("label")
+      .remove();
+
     createTree();
 
     d3.select("svg")
-      .style("height", "750")
-      .attr("transform", "translate( 50 , -4)");
+      .style("zoom", 0.70)
+      .style("width", "1860")
+      .style("height", "600")
+      .attr("transform", "translate( -290 , 80)");
   };
 
   function step9() {

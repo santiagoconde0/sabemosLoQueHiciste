@@ -1,6 +1,6 @@
 function createTree() {
 
-  var margin = {top: 20, right: 20, bottom: 30, left: 100},
+  var margin = {top: 20, right: 20, bottom: 30, left: 10},
       width = 860 - margin.left - margin.right,
       height = 700 - margin.top - margin.bottom;
 
@@ -13,7 +13,7 @@ var width = +svg.attr("width"),
   height = +svg.attr("height"),
   duration = 75,
   dy = width / 4,
-  dx = 50, // separacion entre nodos
+  dx = 40, // separacion entre nodos
   tree = d3.tree().nodeSize([dx, dy]), // D3 Layout tree
   diagonal = d3.linkHorizontal().x(d => d.y).y(d => d.x)
 margin = ({
@@ -24,7 +24,10 @@ margin = ({
 });
 
 // Se llaman los datos
-d3.csv("data/data.csv").then(function(data) {
+d3.json("data/datadetallada1.json").then(function(data) {
+
+
+  // console.log("DATA: ", data);
 
   // Se hace nest para organizar los datos en jerarquias
   var nestData = d3.nest()
@@ -34,10 +37,21 @@ d3.csv("data/data.csv").then(function(data) {
     .key(function(d) {
       return d.Contratista;
     })
+    .rollup(d => {
+      return d3.sum(d, d => +d.valor_total_contratos);
+    })
+    .key(function(d) {
+      return d.Contratista;
+    })
+    .key(function(d) {
+      return d.Contratista;
+    })
     .entries(data)
     .sort(function(a, b) {
       return d3.descending(a.values, b.values);
     });
+
+    console.log("nestData", nestData);
 
   var nestedDataAsTree = ({
     key: "Congresistas",

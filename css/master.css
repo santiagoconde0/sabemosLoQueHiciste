@@ -1,5 +1,4 @@
 /* tipografias Monserrat usadas en cuestion publica */
-
 @font-face {
   font-family: Montserrat-Medium;
   src: url("lib/CP Libs/Monserrat/FONT/Montserrat-Medium.otf");
@@ -113,8 +112,4 @@
 @font-face {
   font-family: Rosario-Regular;
   src: url("lib/CP Libs/Rosario/Rosario-Regular.otf");
-}
-
-div {
-  font-family: "Rosario-Regular", serif;
 }
