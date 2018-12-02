@@ -30,27 +30,29 @@ function createTree() {
 
   // Se llaman los datos
   d3.json("data/datadetallada1.json").then(function(data) {
-
-
-    // console.log("DATA: ", data);
-
+console.log("Data", data);
     // Se hace nest para organizar los datos en jerarquias
     var nestData = d3.nest()
       .key(function(d) {
         return d.Congresista;
       })
       .key(function(d) {
-        return d.Contratista;
+
+        console.log(d.Vínculo + ": " + d.Contratista );
+        return d.Vínculo.toUpperCase() + ": " + d.Contratista ;
       })
       .rollup(d => {
         return d3.sum(d, d => +d.valor_total_contratos);
       })
       .key(function(d) {
-        return d.Contratista;
+        return d.nombre_entidad;
       })
-      .key(function(d) {
-        return d.Contratista;
-      })
+      // .rollup(d => {
+      //   return d3.sum(d, d => +d.valor_total_contratos);
+      // })
+      // .key(function(d) {
+      //   return d.Contratista;
+      // })
       .entries(data)
       .sort(function(a, b) {
         return d3.descending(a.values, b.values);
@@ -172,7 +174,7 @@ function createTree() {
           return d.children || d._children ? "end" : "start";
         })
         .text(function(d) {
-          if (d.depth < 3) {
+          if (d.depth < 4) {
             if (d.depth === 2) {
 
               const words = d.data.key.split(/\s+/g); // Ajustar tamanio para ingresar textos largos en una nueva linea
@@ -186,7 +188,8 @@ function createTree() {
             }
 
           } else {
-            return d.data["Valor total contratos"]
+            var convert = d.data.value/1000000
+            return "$" + ~~convert + " M"
           }
         })
         .clone(true).lower()
