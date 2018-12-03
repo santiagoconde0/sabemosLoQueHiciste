@@ -3,7 +3,7 @@
 " Sabemos lo que hiciste - familiares de congresistas contratistas del estado " is a project for the   [*Visual Analytics*](http://johnguerra.co/classes/visual_analytics_fall_2018/)  class fall 2018 [*Universidad de los Andes*](https://uniandes.edu.co/)
 
 
-![](img/sabemosloquehiciste.gif)
+[![Video explanation](img/sabemosloquehiciste.gif)](https://santiagoconde0.github.io/sabemosLoQueHiciste/)
 
 # Technologies used
 
@@ -37,7 +37,7 @@ Clone the repository an lauch in your favorite web server, e.g.:
 
 ## [Presentation](https://santiagoconde0.github.io/sabemosLoQueHiciste/presentation.html)
 
-## Video
+## Video explanation
 
 [![Video explanation](img/Video.PNG)](https://www.youtube.com/watch?v=_-F7fB93r3s)
 
