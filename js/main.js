@@ -35,6 +35,7 @@ function doStep(step) {
 
     changeText
       .style("font-size", "60px")
+      .style("font-weight", "normal")
       .text("Veamos lo siguiente");
 
     var backViz = d3.select("#vis1")._groups[0].map(function(d) {
@@ -153,9 +154,9 @@ function doStep(step) {
 
   function step9() {
     changeText
-      .style("font-size", "60px")
+      .style("font-size", "25px")
       .style("font-weight", "normal" )
-      .text("Texto para tree");
+      .text("Seleccione un congresista y obtenga el detalle del vínculo con el contratista, con su respectivo valor total");
 
     d3.selectAll("svg").remove();
 
@@ -201,18 +202,21 @@ function doStep(step) {
 
 
       }});
+      d3.select("#col1")
+      .attr("class", "col-sm-3");
     changeText
-      .style("font-size", "60px")
+      .style("font-size", "25px")
       .style("font-weight", "normal" )
-      .text("Texto para circlePack");
+      .text("A continuación, se resume las entidades que contratan con los contratistas familiares de congresistas. ")
+      .append("p")
+      .style("font-size", "20px")
+      .text("(Para obtener detalles de click sobre el nombre del congresista, seguido a esto seleccione al contratista para ver en detalle las entidades que contratan con este.)");
 
     d3.selectAll("svg").remove();
 
-    d3.select("#col1")
-      .attr("class", "col-sm-2");
 
     d3.select("#content")
-      .attr("class", "col-sm-10");
+      .attr("class", "col-sm-9");
 
       d3.select("label")
       .remove();
@@ -227,7 +231,7 @@ function doStep(step) {
     $("#circlePack").css({ transform: "scale(.95)" });
 
     $("#circlePack").animate({
-		"marginTop" : "-=200px" //moves up
+		"marginTop" : "-=180px" //moves up
 		});
   };
 
