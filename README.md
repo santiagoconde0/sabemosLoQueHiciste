@@ -37,7 +37,7 @@ Clone the repository an lauch in your favorite web server, e.g.:
 
 ## [Presentation](https://santiagoconde0.github.io/sabemosLoQueHiciste/presentation.html)
 
-
+[![Video explanation](https://img.youtube.com/vi/_-F7fB93r3s/0.jpg)](https://www.youtube.com/watch?v=_-F7fB93r3s)
 
 ## [Video explanation](https://youtu.be/_-F7fB93r3s)
 
