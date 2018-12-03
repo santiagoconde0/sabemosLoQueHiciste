@@ -19,11 +19,20 @@ function doStep(step) {
   };
 
   function step3() {
+    $("#circlePack").animate({
+    "marginTop" : "0px" //moves up
+    });
+
     changeText
       .text("¡Todos tienen familiares contratando con el estado!");
   };
 
   function step4() {
+
+    $("#circlePack").animate({
+    "marginTop" : "0px" //moves up
+    });
+
     changeText
       .style("font-size", "60px")
       .text("Veamos lo siguiente");
@@ -50,6 +59,10 @@ function doStep(step) {
   };
 
   function step5() {
+
+    $("#circlePack").animate({
+    "marginTop" : "0px" //moves up
+    });
 
     d3.select("#col1")
       .attr("class", "col-sm-2");
@@ -83,7 +96,11 @@ function doStep(step) {
 
   };
 
-  function step6() {
+  function step8() {
+
+    $("#circlePack").animate({
+    "marginTop" : "0px" //moves up
+    });
       changeText
       .style("font-size", "26px")
       .style("top", "50%")
@@ -95,9 +112,6 @@ function doStep(step) {
       .style("font-weight", "normal" )
       .style("font-size", "16px")
       .text("La siguiente visualización muestra la modalidad de contratación realizada por los familiares de los congresistas.Puede seleccionar la modalidad de su preferencias con un clic y sí lo desea puede seleccionar ordenar para visualizar las diferentes modalidades ordenadas.Para mostrar todas las modalidades, nuevamente dar un clic sobre la modalidad antes seleccionada");
-
-    var backViz = d3.select("#vis1")._groups[0].map(function(d) {
-      if (d !== null) {
 
         d3.select("#vis1")
           .attr("id", "content");
@@ -129,17 +143,18 @@ function doStep(step) {
           .style("font-family", "Rosario-Regular, Rosario-Regular")
           .style("font-size", "25px");
 
-      };
-    });
+
   };
 
-  function step7() {
-    changeText
-      .text("Texto B");
-  };
+  // function step7() {
+  //   changeText
+  //     .text("Texto B");
+  // };
 
-  function step8() {
+  function step9() {
     changeText
+      .style("font-size", "60px")
+      .style("font-weight", "normal" )
       .text("Texto para tree");
 
     d3.selectAll("svg").remove();
@@ -152,6 +167,9 @@ function doStep(step) {
 
       d3.select("label")
       .remove();
+      $("#circlePack").animate({
+      "marginTop" : "0px" //moves up
+      });
 
     createTree();
 
@@ -165,10 +183,27 @@ function doStep(step) {
       .style("height", "490");
 
 
-
   };
-  function step9() {
+  function step6() {
+
+    var backViz = d3.select("#vis1")._groups[0].map(function(d) {
+      if (d !== null) {
+
+        d3.select("#vis1")
+          .attr("id", "content");
+        d3.selectAll("svg").remove();
+
+        d3.select("#col1")
+          .attr("class", "col-sm-4");
+
+        d3.select("#content")
+          .attr("class", "col-sm-8");
+
+
+      }});
     changeText
+      .style("font-size", "60px")
+      .style("font-weight", "normal" )
       .text("Texto para circlePack");
 
     d3.selectAll("svg").remove();
@@ -197,6 +232,9 @@ function doStep(step) {
   };
 
   function step10() {
+    $("#circlePack").animate({
+    "marginTop" : "0px" //moves up
+    });
     changeText
       .text("")
       .style("font-size", "30px");
