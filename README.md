@@ -2,6 +2,9 @@
 
 " Sabemos lo que hiciste - familiares de congresistas contratistas del estado " is a project for the   [*Visual Analytics*](http://johnguerra.co/classes/visual_analytics_fall_2018/)  class fall 2018 [*Universidad de los Andes*](https://uniandes.edu.co/)
 
+
+![](img/sabemosloquehiciste.gif)
+
 # Technologies used
 
 * HTML 5
