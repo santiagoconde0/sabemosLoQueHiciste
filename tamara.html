@@ -1,76 +1,160 @@
-    <html>
-      <head>
-        <link rel="stylesheet" href="css/reveal.css">
-        <link rel="stylesheet" href="css/theme/white.css">
-        <link rel="stylesheet" href="css/revealVizScroll.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-      </head>
-      <body>
-        <div class="reveal">
-          <div class="slides">
-            <!-- Optional: Placeholder for your scrollable viz -->
-            <div class="scrollable scrollable-demo">
-              <svg width=400 height=400>
-                <circle cx=200 cy=200 r=20 style="fill:steelblue"></circle>
-              </svg>
-            </div>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 
-            <!-- Your slides -->
-            <section>
-              <section>
-                <h1>No Scrolling</h1>
-              </section>
-              <section class="scroll" scrollable="demo" step="step 0" >
-                <h2>Step 0 text</h2>
-              </section>
-              <section class="scroll" scrollable="demo" step="step 1" >
-                <h2>Step 1 text</h2>
-              </section>
-              <section>
-                <h2>No scrolling again</h2>
-              </section>
-            </section>
-          </div>
+<head>
+  <meta charset="utf-8">
+  <title>FW Tamara</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <h4 class="my-0 mr-md-auto font-weight-normal">Congresistas con familiares contratando con estado</h4>
+    <nav class="my-2 my-md-0 mr-md-3">
+      <a class="p-2 text-dark" href="/familiaresCongresistasTree/">Visualization</a>
+      <a class="p-2 text-dark" href="/familiaresCongresistasTree/tamara.html">Tamara</a>
+      <a class="p-2 text-dark" href="https://github.com/santiagoconde0/familiaresCongresistasTree">Code</a>
+    </nav>
+  </div>
+
+  <div class="container">
+    <div class="card-deck mb-3 text-center">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">What?</h4>
         </div>
+        <div class="card-body">
+          <p align="left"><b>Dataset: </b>
+            El Dataset es de Networks & Trees</p>
+          <p align="left"><b>Atributos: </b>
+            <ul>
+              <li align="left">Congresista: </li>
+              <p align="left">Categorical</p>
+              <li align="left">Votos: </li>
+              <p align="left">Ordered: quantitative - Sequiential</p>
+              <li align="left">Años como contratista: </li>
+              <p align="left">Ordered: ordinal </p>
+              <li align="left">Vínculo: </li>
+              <p align="left">Categorical</p>
+              <li align="left">Número de contratos: </li>
+              <p align="left">Ordered: quantitative</p>
+              <li align="left">Valor total contratos: </li>
+              <p align="left">Ordered: quantitative - Sequiential</p>
+              <li align="left">Aportó a la campaña: </li>
+              <p align="left">Categorical</p>
+              <li align="left">Año financiación: </li>
+              <p align="left">Ordered: ordinal </p>
+              <li align="left">Monto financiación: </li>
+              <p align="left">Ordered: Quantitative </p>
+              <li align="left">Tipo contrato: </li>
+              <p align="left">Categorical</p>
+              <li align="left">Clasificación Objeto Contrato</li>
+              <p align="left">Categorical</p>
+            </ul>
 
-        <script src="https://d3js.org/d3.v5.min.js"></script>
-        <script src="lib/js/head.min.js"></script>
-        <script src="js/reveal.js"></script>
-        <script>
-          function moveLeft(ele) {
-            d3.select(ele)
-              .select("circle")
-              .transition()
-              .duration(1000)
-                .attr("cx", 100);
-          }
+             <hr>
+            <i><p>Derive: Structure - Hierarchy for the tree: (Congresita, Contratista (familiar), Entidad) - Categorical
+              Agregación Valor total contratos - Ordenado - Cuantitativo - Secuencial</a></p></i>  
+            <hr>
+            <i><p>los datos fueron proveidos por <a href="https://cuestionpublica.com/">Cuestión Pública</a></p></i>
+        </div>
+      </div>
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">Why?</h4>
+        </div>
+        <div class="card-body">
+          <p align="left"><b>Tarea principale: </b></p>
 
-          function moveRight(ele) {
-            d3.select(ele)
-              .select("circle")
-              .transition()
-              .duration(1000)
-                .attr("cx", 300);
-          }
+           <ul>
+            <li align="left">Tarea Principal (N1): <b>Resumir</b> la <b>distribución</b> del monto de la contratación por congresista realizada por sus familiares desde el año 2007 al 2018. En términos de Tamara (<b>Summarize</b> the <b>Distribution</b> of variable “Valor total contratos”)
+            </li>
+            <li align="left">
+               Tarea Principal (N2): <b>Explorar</b> de forma <b>divertida</b> a los congresistas que tienen familiares contratando con el estado con sus respectivas características (Monto contratos, familiar, nombre de empresa, cantidad de contratos, tipos de contratos)  desde el año 2007 al 2018. En términos de Tamara (<b>Explore</b>  and <b>enjoy</b> the Fetures of variable “Congresita”). 
+            </li>
 
-          function doStep(step) {
-            if (step==="step 0") moveLeft(this);
-            else if (step==="step 1") moveRight(this);
-          }
+          </ul>
 
-        </script>
-        <script>
-          Reveal.initialize({
-            dependencies: [
-              { src : "js/revealVizScroll.js",
-                async: false,
-                callback: function () {
-                  revealVizScroll.makeScrollable("demo", doStep);
-                }
-              }
-            ],
+          <p align="left"><b>Tareas secundarias: </b></p>
+          <ul>
+              <li align="left">Tarea (N3): <b>Comparar</b> la <b>contratación</b> por congresista realizada por sus familiares desde el año 2007 al 2018. En términos de Tamara (<b>Compare</b> the <b>features</b> of variable “Valor total contratos”).  </li> 
 
-          });
-        </script>
-      </body>
-    </html>
+              <li align="left">Tarea (N4) <b>Derivar</b> los <b>vínculos</b>familiares entre los congresistas, los contratistas y entidad contratante. En términos de Tamara (<b>Derive</b> the <b>Topology</b>). </li> 
+
+            <li align="left">Tarea (N5): <b>explorar</b>las <b>relaciones</b> (vínculos familiares) entre los congresistas, sus familiares y las entidades contratantes. En términos de Tamara (<b>Identify</b>  the <b>Topology</b> of variables  Congresista, Contratista, Entidad contratante). </li> 
+
+                <li align="left">Tarea (N6): <b>Identificar</b> el <b>comportamiento</b> del valor contratado por el familiar del congresista desde el año 2007 al 2018. En términos de Tamara (<b>Identify</b> then <b>features</b> of variable “Valor total contratos”). </li>  
+
+              <li align="left">Tarea (N7): <b>Resumir</b> la <b>>distribución</b> del total contratado por los familiares de los congresistas por su modalidad de contratación. En términos de Tamara (<b>Summarize</b> the Distribution of variables “Tipo de contrato”, Congresista y Valor total contratos”</li>
+                    
+            
+          </ul>
+
+        </div>
+      </div>
+      <div class="card mb-4 shadow-sm s">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">How?</h4>
+        </div>
+        <div class="card-body">
+          <p align="left"><b>Modismo Bar Chart: </b></p> 
+            <li align="left">Marca: Línea </li>
+            <li align="left">Canal: Posición horizontal, color (tono)</li>            
+            <li align="left">Arrange : Separar, Ordenar , Alinear</li>
+            <li align="left">Atributos: Valor total contratos de los familiares por Congresista</li>
+            <li align="left">Descripción: Representa la distribución del valor contratado (del familiar) por congresista.</li>            
+            <li align="left">Aplica para las tareas N1 y N3</li>
+        
+         <p align="left"><b>Modismo Tree: </b></p>            
+          <p align="left"><b>Marcas: </b></p>
+          <ul>
+            <li align="left"><b>Point: </b>Se utilizó lineas para representar los congresistas, contratistas y monto contratado </li>
+            <li align="left"><b>Line: </b>Se utilizó lineas para representar la relación(Vínculo familiar) de los congresistas con contratistas del estado </li>
+
+          </ul>
+          <p align="left"><b>Canales: </b></p>
+          <li align="left">Lines: Representan la relación de un congresista con un familiar contratando con el estado. </li>
+          <p></p>
+          <p align="left"><b>Encode: </b></p>
+          <li align="left"> <b>Arrange: Order - Align </b></li>
+          <p align="left"><b>Manipulate: </b></p>
+          <li align="left"> <b>Change: </b>El usuario puede cambiar el los datos que se visualizan en el arbol.</li>
+          <p align="left"><b>Reduce: </b></p>
+          <li align="left"><b>Filter: </b> se filtra por el congresista que se desea detallar.</li>
+           <li align="left">Aplica para la tarea N5</li>
+          <ul>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Insight</h4>
+      </div>
+      <div class="card-body">
+        <ul>
+          <li align = "left"> <b>David Barguil</b> es el congresista que más familiares tiene contratando con el estado.</li>
+          <li align = "left"> la empresa de la cual <b>Arturo Chart</b> es accionista tiene contraciones con el estado por un alto valor de contratación.</li>
+          <li align = "left"> <b>Lidio García</b> es el congresita que tiene el familiar con el valor de contrato más alto de la lista. </li>
+          <li align = "left"> <b>Antanas Mockus</b> ha sido contratista del estado.</li>
+        </ul>
+      </div>
+    </div>
+    <hr>
+
+    <footer>
+      <div align="center">
+        <small class="d-block mb-3 text-muted">&copy; Santiago Suárez Conde</small>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
