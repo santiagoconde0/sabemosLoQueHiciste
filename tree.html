@@ -8,14 +8,6 @@
   <link rel="stylesheet" href="/css/master.css">
 </head>
 
-<style>
-circle {
-  fill: indianred;
-  opacity: 0.3;
-  stroke: white;
-}
-</style>
-
 <body>
 
   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
@@ -31,13 +23,7 @@ circle {
 
   </div>
 
-  <svg width="320" height="320">
-  <g></g>
-</svg>
 
-  <div align="center">
-    <svg width= "1000" height="1000">  </svg>
-  </div>
 <hr>
   <footer>
     <div align="center">
@@ -45,12 +31,32 @@ circle {
     </div>
   </footer>
 
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vega@4.3.0"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vega-lite@3.0.0-rc8"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vega-embed@3.20.0"></script>
+
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <!-- <script src="js/sections/tree.js"></script> -->
   <script src="js/sections/circlePack.js"></script>
 
   <script>
     // createTree();
+    createCirclePack();
+    $('#content').css({ transform: 'scale(.5)' });
+
+
+// $("#content").css({top: -20, position:'ab'});
+
+ //    d3.select("#content")
+ // .style("position","absolute")
+ // // .style("top","0px")
+ // .transition()
+ // .style("bottom","300px");
+
+
+
   </script>
 
 </body>

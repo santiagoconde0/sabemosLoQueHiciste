@@ -37,23 +37,18 @@ console.log("Data", data);
         return d.Congresista;
       })
       .key(function(d) {
-
-        console.log(d.Vínculo + ": " + d.Contratista );
         return d.Vínculo.toUpperCase() + ": " + d.Contratista ;
       })
       .rollup(d => {
         return d3.sum(d, d => +d.valor_total_contratos);
       })
       .key(function(d) {
-        return d.nombre_entidad;
+        return d.Contratista ;
       })
-      // .rollup(d => {
-      //   return d3.sum(d, d => +d.valor_total_contratos);
-      // })
-      // .key(function(d) {
-      //   return d.Contratista;
-      // })
-      .entries(data)
+      .rollup(d => {
+        return d3.sum(d, d => +d.valor_total_contratos);
+      })
+          .entries(data)
       .sort(function(a, b) {
         return d3.descending(a.values, b.values);
       });
@@ -174,22 +169,18 @@ console.log("Data", data);
           return d.children || d._children ? "end" : "start";
         })
         .text(function(d) {
-          if (d.depth < 4) {
+          if (d.depth < 3) {
             if (d.depth === 2) {
-
               const words = d.data.key.split(/\s+/g); // Ajustar tamanio para ingresar textos largos en una nueva linea
               if (!words[words.length - 2]) words.pop();
               if (!words[0]) words.shift();
               return words[0] + " " + words[1];
-
             } else {
-
               return d.data.key.replace("*", "")
             }
-
           } else {
             var convert = d.data.value/1000000
-            return "$" + ~~convert + " M"
+            return "Total: $" + ~~convert + " M"
           }
         })
         .clone(true).lower()

@@ -159,8 +159,36 @@ function doStep(step) {
 
 
   };
-
   function step9() {
+    changeText
+      .text("Texto para circlePack");
+
+    d3.selectAll("svg").remove();
+
+    d3.select("#col1")
+      .attr("class", "col-sm-2");
+
+    d3.select("#content")
+      .attr("class", "col-sm-10");
+
+      d3.select("label")
+      .remove();
+
+      d3.select("#content")
+      .append("div")
+      .attr("id", "circlePack")
+
+    createCirclePack();
+
+
+    $("#circlePack").css({ transform: "scale(.95)" });
+
+    $("#circlePack").animate({
+		"marginTop" : "-=200px" //moves up
+		});
+  };
+
+  function step10() {
     changeText
       .text("")
       .style("font-size", "30px");
@@ -208,4 +236,5 @@ function doStep(step) {
   else if (step === "step 8") step8();
   else if (step === "step 9") step9();
   else if (step === "step 10") step10();
+  else if (step === "step 11") step11();
 }
