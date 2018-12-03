@@ -68,7 +68,7 @@ function doStep(step) {
       .append("p")
       .style("font-weight", "normal" )
       .style("font-size", "16px")
-      .text("Conozca los montos de contratación realizados por los familiares de los congresistas. En la primera gráfica seleccione (click sostenido) la barra del congresista de su interés y sí desea más detalle puede seleccionar el familiar y observar el comportamiento de la contratación por años. Aquí puede observar un ejemplo de lo que puede encontrar.");
+      .text("Conozca los montos de contratación realizados por los familiares de los congresistas. En la primera gráfica seleccione con un click la barra del congresista de su interés y sí desea más detalle puede seleccionar el familiar en la tercera gráfica con un click sostenido desplazando el mouse y observar el comportamiento de la contratación por años.");
 
     d3.select("#col1")
       .append("svg")
@@ -84,9 +84,17 @@ function doStep(step) {
   };
 
   function step6() {
-    changeText
-      .style("font-size", "60px")
-      .text("Texto para stackbar");
+      changeText
+      .style("font-size", "26px")
+      .style("top", "50%")
+      .style("font-weight", "bold" )
+      .text("¿Conflicto de Intereses? ");
+
+      changeText
+      .append("p")
+      .style("font-weight", "normal" )
+      .style("font-size", "16px")
+      .text("La siguiente visualización muestra la modalidad de contratación realizada por los familiares de los congresistas.Puede seleccionar la modalidad de su preferencias con un clic y sí lo desea puede seleccionar ordenar para visualizar las diferentes modalidades ordenadas.Para mostrar todas las modalidades, nuevamente dar un clic sobre la modalidad antes seleccionada");
 
     var backViz = d3.select("#vis1")._groups[0].map(function(d) {
       if (d !== null) {
