@@ -54,16 +54,10 @@ var vlSpec1 ={
         },
         "selection": {
           "congresel": {
-            "type": "interval",
+            "type": "single", "on": "click",
             "empty": "none",
-            "encodings": ["y"],
-            "on": "[mousedown, window:mouseup] > window:mousemove!",
-            "translate": "[mousedown, window:mouseup] > window:mousemove!",
-            "zoom": "wheel!",
-            "mark": {"fill": "#585858", "fillOpacity": 0.125, "stroke": "#cd619a"},
-            "resolve": "global"
-          }
-        }
+            "encodings": ["y"]
+          }}
   },
 {
 "hconcat": [{
