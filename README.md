@@ -43,9 +43,12 @@ Clone the repository an lauch in your favorite web server, e.g.:
 
 # [FW TAMARA](https://santiagoconde0.github.io/sabemosLoQueHiciste/tamara.html)
 
+##Insights
+
+![](img/insight.PNG)
+
 ## DATA
 
 * the data was provided by  [Cuestion Pública](https://cuestionpublica.com/)
 
 Viz Stacked Bar Chart based  by Mike Bostock https://bl.ocks.org/mbostock/3886208
-
