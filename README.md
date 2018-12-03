@@ -15,6 +15,7 @@
 * [Bootstrap](https://getbootstrap.com/)
 * [RevealJS](https://revealjs.com)
 * [RevealVizScroll](https://github.com/john-guerra/revealVizScrollyteling)
+* [Vegalite](https://vega.github.io/vega-lite/)
 
 ## How to run?
 
@@ -45,3 +46,6 @@ Clone the repository an lauch in your favorite web server, e.g.:
 ## DATA
 
 * the data was provided by  [Cuestion Pública](https://cuestionpublica.com/)
+
+Viz Stacked Bar Chart based  by Mike Bostock https://bl.ocks.org/mbostock/3886208
+
