@@ -39,7 +39,7 @@ Clone the repository an lauch in your favorite web server, e.g.:
 
 
 
-## [Video explanation](xxxxx)
+## [Video explanation](https://youtu.be/_-F7fB93r3s)
 
 # [FW TAMARA](https://santiagoconde0.github.io/sabemosLoQueHiciste/tamara.html)
 
