@@ -38,7 +38,7 @@ function createBubble() {
 
     // Insertar imagenes en las burbujas
     var images = node.append("image")
-      .attr('xlink:href', function(d) {
+      .attr("xlink:href", function(d) {
         return "img/congresistas/" + d.ID.replace(/ /g, '').replace("*", '') + ".png"; //Crear Path de las imagens
       }).attr("width", 155)
       .call(d3.drag()
