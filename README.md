@@ -4,7 +4,7 @@
 
 ## [Demo link](https://santiagoconde0.github.io/sabemosLoQueHiciste/)
 
-[![Demo link](img/ezgif.com-gif-maker.gif)](https://santiagoconde0.github.io/sabemosLoQueHiciste/)
+[![Demo link](img/ezgif.com-crop.gif)](https://santiagoconde0.github.io/sabemosLoQueHiciste/)
 
 
 ## How to run?
