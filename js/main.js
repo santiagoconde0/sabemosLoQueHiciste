@@ -116,7 +116,7 @@ function doStep(step) {
     d3.select("#info")
       .append("p")
       .attr("class", "mb-0")
-      .text("Haz clic sostenido en el nombre del congresista de tu elección en el cuadro 1 para desplegar la información en los cuadros 2, 3. Para ver el incremento por año por familiar haz clic sostenido en el cuadro 3.");
+      .text("Haz un clic  en el nombre del congresista de tu elección en el cuadro 1 para desplegar la información en los cuadros 2, 3. Para ver el incremento por año por familiar haz clic sostenido en el cuadro 3.");
 
 
 
