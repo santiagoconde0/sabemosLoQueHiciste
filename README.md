@@ -52,3 +52,6 @@ Viz Stacked Bar Chart based  by Mike Bostock https://bl.ocks.org/mbostock/388620
 [Santiago Suárez Conde](https://github.com/santiagoconde0)
 
 [Martha Cardenas](https://github.com/mlcardenas18)
+
+## Paper
+Enlace al documento https://github.com/santiagoconde0/sabemosLoQueHiciste/blob/master/Documentation/Paper%20Proy_SabesLoqueHicitesFamiliasdecongresisconcont.pdf
