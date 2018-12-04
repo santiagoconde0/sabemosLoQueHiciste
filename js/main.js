@@ -1,6 +1,7 @@
 var changeText = d3.select("#legend") //selector del texto
   .style("font-family", "Rosario-Regular, Rosario-Regular");
 
+  //Funcion que contiene los steps de cada section
 function doStep(step) {
 
   function step0() {
@@ -20,7 +21,7 @@ function doStep(step) {
 
   function step3() {
     $("#circlePack").animate({
-    "marginTop" : "0px" //moves up
+    "marginTop" : "0px" //desplaza el circle pack hacia arriba
     });
 
     changeText
@@ -30,7 +31,7 @@ function doStep(step) {
   function step4() {
 
     $("#circlePack").animate({
-    "marginTop" : "0px" //moves up
+    "marginTop" : "0px" //desplaza el circle pack hacia arriba
     });
 
     changeText
@@ -38,11 +39,12 @@ function doStep(step) {
       .style("font-weight", "normal")
       .text("Veamos lo siguiente");
 
+//Evalua si existe la visualizacion anterior
     var backViz = d3.select("#vis1")._groups[0].map(function(d) {
       if (d !== null) {
 
         d3.select("#vis1")
-          .attr("id", "content");
+          .attr("id", "content"); //se vuelve a cambiar el ID por el original
         d3.select("svg").remove();
         d3.select("svg").remove();
 
@@ -53,6 +55,7 @@ function doStep(step) {
           .attr("id", "content")
           .attr("class", "col-sm-6");
 
+//Se llaman las burbujas de los congresistas
         createBubble();
 
       };
@@ -62,7 +65,7 @@ function doStep(step) {
   function step5() {
 
     $("#circlePack").animate({
-    "marginTop" : "0px" //moves up
+    "marginTop" : "0px" //desplaza el circle pack hacia arriba
     });
 
     d3.select("#col1")
@@ -89,8 +92,10 @@ function doStep(step) {
       .attr("width", 1)
       .attr("height", 10);
 
+//Se llama funcion que crea el conjunto de barcharts
     createBarchart();
 
+// ajustar el tamanio del div de vegalite para que no se recorte
     d3.select(".marks")
       .style("zoom", 0.90)
       .style("width", "1300");
@@ -100,7 +105,7 @@ function doStep(step) {
   function step8() {
 
     $("#circlePack").animate({
-    "marginTop" : "0px" //moves up
+    "marginTop" : "0px" //desplaza el circle pack hacia arriba
     });
       changeText
       .style("font-size", "26px")
@@ -118,6 +123,7 @@ function doStep(step) {
           .attr("id", "content");
         d3.selectAll("svg").remove();
 
+// cambio de tamanio de las columnas
         d3.select("#col1")
           .attr("class", "col-sm-4");
 
@@ -138,13 +144,12 @@ function doStep(step) {
         // crear stackbar
         createStackBar();
 
+// Desplazar el checkbox a otro Div para poder visualizar
         $("#label").appendTo("#content");
 
         d3.select("#label")
           .style("font-family", "Rosario-Regular, Rosario-Regular")
           .style("font-size", "25px");
-
-
   };
 
   // function step7() {
@@ -158,6 +163,7 @@ function doStep(step) {
       .style("font-weight", "normal" )
       .text("Seleccione un congresista y obtenga el detalle del vínculo con el contratista, con su respectivo valor total");
 
+// Limpiar viz antigua
     d3.selectAll("svg").remove();
 
     d3.select("#col1")
@@ -169,9 +175,10 @@ function doStep(step) {
       d3.select("label")
       .remove();
       $("#circlePack").animate({
-      "marginTop" : "0px" //moves up
+      "marginTop" : "0px" //desplaza el circle pack hacia arriba
       });
 
+// Se llama funcion para crear arbol
     createTree();
 
     d3.select("svg")
@@ -187,6 +194,7 @@ function doStep(step) {
   };
   function step6() {
 
+//Evaluar si existe viz anterior
     var backViz = d3.select("#vis1")._groups[0].map(function(d) {
       if (d !== null) {
 
@@ -199,11 +207,11 @@ function doStep(step) {
 
         d3.select("#content")
           .attr("class", "col-sm-8");
-
-
       }});
+
       d3.select("#col1")
       .attr("class", "col-sm-3");
+
     changeText
       .style("font-size", "25px")
       .style("font-weight", "normal" )
@@ -212,12 +220,13 @@ function doStep(step) {
       .style("font-size", "20px")
       .text("(Para obtener detalles de click sobre el nombre del congresista, seguido a esto seleccione al contratista para ver en detalle las entidades que contratan con este.)");
 
+//limpiar viz anterior
     d3.selectAll("svg").remove();
-
 
     d3.select("#content")
       .attr("class", "col-sm-9");
 
+// Remover checkbox
       d3.select("label")
       .remove();
 
@@ -225,26 +234,31 @@ function doStep(step) {
       .append("div")
       .attr("id", "circlePack")
 
+// Llamar funcion que crea circle Pack
     createCirclePack();
 
-
+// Cambio de escaka de circlePack para que no se recorte
     $("#circlePack").css({ transform: "scale(.95)" });
 
+// desplazar circle pack para que no se recorte
     $("#circlePack").animate({
-		"marginTop" : "-=180px" //moves up
+		"marginTop" : "-=180px" //desplaza el circle pack hacia arriba
 		});
   };
 
   function step10() {
     $("#circlePack").animate({
-    "marginTop" : "0px" //moves up
+    "marginTop" : "0px" //desplaza el circle pack hacia arriba
     });
+
     changeText
       .text("")
       .style("font-size", "30px");
 
+// Limpiar viz anterior
     d3.selectAll("svg").remove();
 
+// ajustar tamanio de columnas
     d3.select("#col1")
       .attr("class", "col-sm-5");
 
@@ -255,6 +269,7 @@ function doStep(step) {
     // llamar TableheadMap
     createTableHeadMap();
 
+// Desplazar dropdown a otra columba para poder visualizar
     d3.select("#legend")
       .append("div")
       .attr("id", "DD");
@@ -264,7 +279,6 @@ function doStep(step) {
       .text("Seleccione el congresista");
 
     // ajustar tamanio SVG de Vega
-
     d3.select(".marks")
       .style("width", "820")
       .style("height", "650")
@@ -272,9 +286,9 @@ function doStep(step) {
 
     // Se mueve el dropdown generado por Vega a otro DIV
     $(".vega-bindings").appendTo("#DD");
-
   };
 
+//Evaluar en que step se encuentra la section para ejecutar funcion respectiva
   if (step === "step 0") step0();
   else if (step === "step 1") step1();
   else if (step === "step 2") step2();

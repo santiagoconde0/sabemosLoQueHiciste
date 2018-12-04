@@ -1,5 +1,7 @@
+// funcion para llamar el arbol
 function createTree() {
 
+  // Ajuste de margenes
   var margin = {
       top: 20,
       right: 20,
@@ -9,10 +11,12 @@ function createTree() {
     width = 860 - margin.left - margin.right,
     height = 900 - margin.top - margin.bottom;
 
+  // Crear SVG en el DIV Content
   var svg = d3.select("#content").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
   // Obtener parametros del SVG que esta en el index
   var width = +svg.attr("width"),
     height = +svg.attr("height"),
@@ -30,31 +34,33 @@ function createTree() {
 
   // Se llaman los datos
   d3.json("data/datadetallada1.json").then(function(data) {
-console.log("Data", data);
+    // console.log("Data", data);
+
     // Se hace nest para organizar los datos en jerarquias
     var nestData = d3.nest()
       .key(function(d) {
         return d.Congresista;
       })
       .key(function(d) {
-        return d.Vínculo.toUpperCase() + ": " + d.Contratista ;
+        return d.Vínculo.toUpperCase() + ": " + d.Contratista;
       })
       .rollup(d => {
         return d3.sum(d, d => +d.valor_total_contratos);
       })
       .key(function(d) {
-        return d.Contratista ;
+        return d.Contratista;
       })
       .rollup(d => {
         return d3.sum(d, d => +d.valor_total_contratos);
       })
-          .entries(data)
+      .entries(data)
       .sort(function(a, b) {
         return d3.descending(a.values, b.values);
       });
 
-    console.log("nestData", nestData);
+    // console.log("nestData", nestData);
 
+    // Se ajusta datos para que hereden de un nodo padre que el de congresistas
     var nestedDataAsTree = ({
       key: "Congresistas",
       values: nestData
@@ -73,9 +79,9 @@ console.log("Data", data);
       } else {
         return;
       };
-
     });
 
+    // Crear links que entre nodos
     const gLink = svg.append("g")
       .attr("fill", "none")
       .attr("stroke", "#555")
@@ -179,7 +185,7 @@ console.log("Data", data);
               return d.data.key.replace("*", "")
             }
           } else {
-            var convert = d.data.value/1000000
+            var convert = d.data.value / 1000000
             return "Total: $" + ~~convert + " M"
           }
         })

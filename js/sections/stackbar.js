@@ -1,6 +1,7 @@
 // llamar la funcion para crear el stackbar
 function createStackBar() {
 
+  // Setear variables de margenes
   var margin = {
       top: 20,
       right: 20,
@@ -79,9 +80,9 @@ function createStackBar() {
       return b.total - a.total;
     });
 
-// LLamar textos para el eje de las X
+    // LLamar textos para el eje de las X
     x.domain(data.map(function(d) {
-      return d.congresistafam ;
+      return d.congresistafam;
     }))
 
 
@@ -171,7 +172,7 @@ function createStackBar() {
       })
 
 
-// opciones del lado para filtrar
+    // opciones del lado para filtrar
     var legend = svg.selectAll(".legend")
       .data(color.domain().slice().reverse())
       .enter().append("g")

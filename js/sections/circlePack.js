@@ -1,66 +1,77 @@
+// funcion para crear el circlePack
 function createCirclePack() {
 
-var width = 932,
-height = width,
-format = d3.format(",d"),
-color = d3.scaleLinear()
+  // Ajuste dimensiones y color
+  var width = 932,
+    height = width,
+    format = d3.format(",d"),
+    color = d3.scaleLinear()
     .domain([0, 5])
     .range(["hsl(152,80%,80%)", "hsl(228,30%,40%)"])
     .interpolate(d3.interpolateHcl);
 
-// Se llaman los datos
-d3.json("data/CirclePackData.json").then(function(data) {
-console.log("Data", data);
+  // Se llaman los datos
+  d3.json("data/CirclePackData.json").then(function(data) {
+    // console.log("Data", data);
 
-var pack = data => d3.pack()
-    .size([width, height])
-    .padding(3)
-  (d3.hierarchy(data)
-    .sum(d => d.size)
-    .sort((a, b) => b.value - a.value))
+    // Ajuste de datos en jerarquia
+    var pack = data => d3.pack()
+      .size([width, height])
+      .padding(3)
+      (d3.hierarchy(data)
+        .sum(d => d.size)
+        .sort((a, b) => b.value - a.value))
 
     const root = pack(data);
     let focus = root;
     let view;
 
+    // Se crea SVG
     const svg = d3.select("#circlePack")
-    .append("svg")
-        .attr("viewBox", `-${width / 2} -${height / 2} ${width} ${height}`)
-        .style("display", "block")
-        .style("margin", "0 -5px")
-        .style("width", "calc(100% + 28px)")
-        .style("height", "auto")
-        .style("background", "none")
-        .style("cursor", "pointer")
-        .on("click", () => zoom(root));
+      .append("svg")
+      .attr("viewBox", `-${width / 2} -${height / 2} ${width} ${height}`)
+      .style("display", "block")
+      .style("margin", "0 -5px")
+      .style("width", "calc(100% + 28px)")
+      .style("height", "auto")
+      .style("background", "none")
+      .style("cursor", "pointer")
+      .on("click", () => zoom(root));
 
+    // Agregar grupos "Circulso"
     const node = svg.append("g")
       .selectAll("circle")
       .data(root.descendants().slice(1))
       .enter().append("circle")
-        .attr("fill", d => d.children ? color(d.depth) : "white")
-        .attr("pointer-events", d => !d.children ? "none" : null)
-        .on("mouseover", function() { d3.select(this).attr("stroke", "#000"); })
-        .on("mouseout", function() { d3.select(this).attr("stroke", null); })
-        .on("click", d => focus !== d && (zoom(d), d3.event.stopPropagation()));
+      .attr("fill", d => d.children ? color(d.depth) : "white") //Ajustar color dependiendo el nivel y si tiene hijos
+      .attr("pointer-events", d => !d.children ? "none" : null)
+      .on("mouseover", function() {
+        d3.select(this).attr("stroke", "#000");
+      })
+      .on("mouseout", function() {
+        d3.select(this).attr("stroke", null);
+      })
+      .on("click", d => focus !== d && (zoom(d), d3.event.stopPropagation()));
 
+    //Crear textos
     const label = svg.append("g")
-        .style("font", "17px sans-serif")
-        .attr("pointer-events", "none")
-        .attr("text-anchor", "middle")
-        .style("fill", "black")
-        .style("font-weight", "bold" )
-        .style("stroke-width", 0.2)
-        .style("stroke", "white")
+      .style("font", "17px sans-serif")
+      .attr("pointer-events", "none")
+      .attr("text-anchor", "middle")
+      .style("fill", "black")
+      .style("font-weight", "bold")
+      .style("stroke-width", 0.2)
+      .style("stroke", "white")
       .selectAll("text")
       .data(root.descendants())
       .enter().append("text")
-        .style("fill-opacity", d => d.parent === root ? 1 : 0)
-        .style("display", d => d.parent === root ? "inline" : "none")
-        .text(d => d.data.name);
+      .style("fill-opacity", d => d.parent === root ? 1 : 0)
+      .style("display", d => d.parent === root ? "inline" : "none")
+      .text(d => d.data.name);
 
     zoomTo([root.x, root.y, root.r * 2]);
 
+    // Fucnion que se llama cuando se hace zoom
     function zoomTo(v) {
       const k = width / v[2];
 
@@ -77,19 +88,25 @@ var pack = data => d3.pack()
       focus = d;
 
       const transition = svg.transition()
-          .duration(d3.event.altKey ? 7500 : 750)
-          .tween("zoom", d => {
-            const i = d3.interpolateZoom(view, [focus.x, focus.y, focus.r * 2]);
-            return t => zoomTo(i(t));
-          });
+        .duration(d3.event.altKey ? 7500 : 750)
+        .tween("zoom", d => {
+          const i = d3.interpolateZoom(view, [focus.x, focus.y, focus.r * 2]);
+          return t => zoomTo(i(t));
+        });
 
       label
-        .filter(function(d) { return d.parent === focus || this.style.display === "inline"; })
+        .filter(function(d) {
+          return d.parent === focus || this.style.display === "inline";
+        })
         .transition(transition)
-          .style("fill-opacity", d => d.parent === focus ? 1 : 0)
-          .on("start", function(d) { if (d.parent === focus) this.style.display = "inline"; })
-          .on("end", function(d) { if (d.parent !== focus) this.style.display = "none"; });
+        .style("fill-opacity", d => d.parent === focus ? 1 : 0)
+        .on("start", function(d) {
+          if (d.parent === focus) this.style.display = "inline";
+        })
+        .on("end", function(d) {
+          if (d.parent !== focus) this.style.display = "none";
+        });
     }
     return svg.node();
-});
+  });
 }
