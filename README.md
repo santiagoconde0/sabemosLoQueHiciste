@@ -37,6 +37,8 @@ Clone the repository an lauch in your favorite web server, e.g.:
 
 # [FW TAMARA](https://santiagoconde0.github.io/sabemosLoQueHiciste/tamara.html)
 
+[![FW TAMARA](img/fwTamara.png)](https://santiagoconde0.github.io/sabemosLoQueHiciste/tamara.html)
+
 ## Insights
 
 ![](img/insight.PNG)
