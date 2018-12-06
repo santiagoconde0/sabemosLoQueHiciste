@@ -13,10 +13,9 @@ Clone the repository an lauch in your favorite web server, e.g.:
 
     git clone https://github.com/santiagoconde0/sabemosLoQueHiciste   
     cd sabemosLoQueHiciste
-    http-server
+    http-server 
 
-    ## [Presentation](https://santiagoconde0.github.io/sabemosLoQueHiciste/presentation.html)
-
+# [Presentation](https://santiagoconde0.github.io/sabemosLoQueHiciste/presentation.html)
 # Technologies used
 
 * HTML 5
